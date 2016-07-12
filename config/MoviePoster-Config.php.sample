@@ -1,11 +1,11 @@
 <?php
 /*
-* NotePaper v1.5.3
-* http://development.sjmcdougall.com/pico-themes/NotePaper
-* http://github.com/smcdougall/NotePaper
+* MoviePoster v1.5.3
+* http://development.sjmcdougall.com/pico-themes/MoviePoster
+* http://github.com/smcdougall/MoviePoster
 */
 
-$config['NotePaper'] = array(
+$config['MoviePoster'] = array(
 
 	#Basic Config
 	'site_logo'                 => '',	// Site logo, reletive to base_url. (Example: 'assets/site_logo.png').
@@ -15,7 +15,7 @@ $config['NotePaper'] = array(
 
 	#CSS Config
 	'css'                       => array(
-		'theme'                   => '',	// NotePaper theme folder to use. (Example: 'SideBar').
+		'theme'                   => '',	// MoviePoster theme folder to use. (Example: 'SideBar').
 		'override'                => '',  // Override theme styles with custom stylesheet, relative to base_url. (Example: 'assets/override.css').
 		'fonts'                   => array(),	// Add custom fonts using stylesheets or Google Fonts. Use comma separated urls in quotes. (Example: 'https://fonts.googleapis.com/css?family=Roboto','https://fonts.googleapis.com/css?family=Ubuntu').
 		'mirrorwidgets'           => false,	// Flips widgets to the left side of the page.
