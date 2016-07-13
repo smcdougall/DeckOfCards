@@ -85,7 +85,7 @@ http://github.com/smcdougall/MoviePoster
 	{% endif %}
 
 </head>
-<body>
+<body style="background-image: url({{ meta.background }})">
 
 	{# Show YAML Errors #}
 	{% for page in pages if page.meta.YAML_ParseError %}

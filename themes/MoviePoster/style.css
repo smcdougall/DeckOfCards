@@ -6,18 +6,22 @@ http://github.com/smcdougall/NotePaper
 
 /* Global */
 body {
-  background: #222222 url(images/body-background.jpg) fixed;
+  /* background: #222222 url(images/body-background.jpg) fixed; */
+  background-size: 100%;
+  background-attachment: fixed;
+  background-color: black;
+  color: white;
 }
 
 a {
-  color: black;
+  color: white;
   text-decoration: none;
   font-weight: bold;
   border: none;
 }
 
 a:hover{
-  color: #333;
+  color: #ccc;
 }
 
 hr {
@@ -31,13 +35,15 @@ hr {
 .site_title {
   margin: 16px 16px;
   font-family: Kalam;
-  color: white;
+}
+
+.site_title a:hover {
+  color: #ccc;
 }
 
 footer {
   max-width: 902px;
   margin: 0 auto;
-  color: white;
 }
 
 .site_title h1 {
@@ -98,6 +104,7 @@ nav {
 
 nav li {
   display: inline-block;
+  margin-left: 1em;
 }
 
 .menu {
@@ -136,12 +143,8 @@ nav ul ul ul {
 
 main, .comments {
   display: block; /* Main Support Fix */
-  max-width: 850px;
+  max-width: 85%;
   margin: 0 auto;
-  background: #f1f1f1 url(images/main-background.jpg);
-  border: 1px solid black;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
   padding: 10px 26px 10px 26px; /* 16px margin on <p> plus 10. Plus 200 on right for sidebar */
   font-family: 'Source Code Pro', sans-serif;
   line-height: 1.575em;
@@ -161,7 +164,7 @@ main, .comments {
 }
 
 article header {
-  margin: 25px auto 20px auto;
+  margin: 500px auto 20px auto;
   min-height: 50px;
 }
 .title {
@@ -260,7 +263,7 @@ article pre {
 }
 
 .menu-header:hover {
-  color: #333;
+  color: #ccc;
 }
 
 .menu-header:hover>.menu {
