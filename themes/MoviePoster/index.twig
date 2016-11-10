@@ -1,7 +1,7 @@
 {#
-MoviePoster v1.5.3
-http://development.sjmcdougall.com/pico-themes/MoviePoster
-http://github.com/smcdougall/MoviePoster
+DeckOfCards v1.5.3
+http://development.sjmcdougall.com/pico-themes/DeckOfCards
+http://github.com/smcdougall/DeckOfCards
 #}
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@ http://github.com/smcdougall/MoviePoster
 
 	{# Metadata #}
 	<meta charset="utf-8">
-	<title>{% if meta.title and not ((is_front_page and config.MoviePoster.front_page.enabled) or TwigGetUrl.search or TwigGetUrl.tag) %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
+	<title>{% if meta.title and not ((is_front_page and config.DeckOfCards.front_page.enabled) or TwigGetUrl.search or TwigGetUrl.tag) %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
 	{% if meta.description %}<meta name="description" content="{{ meta.description }}">{% endif %}
 	{% if meta.robots %}<meta name="robots" content="{{ meta.robots }}">{% endif %}
 
@@ -19,28 +19,28 @@ http://github.com/smcdougall/MoviePoster
 	<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro%7CForum%7CKalam:400,700' rel='stylesheet' type='text/css'>
 
 	{# Custom Fonts #}
-	{% if config.MoviePoster.css.fonts %}
-		{% for url in config.MoviePoster.css.fonts %}
+	{% if config.DeckOfCards.css.fonts %}
+		{% for url in config.DeckOfCards.css.fonts %}
 			<link href='{{ url }}' rel='stylesheet' type='text/css'>
 		{% endfor %}
 	{% endif %}
 
 	{# Main Stylesheet #}
 	<link rel="stylesheet" href="{{ theme_url }}/style.css" type="text/css">
-	{% if config.MoviePoster.css.animations %}<link rel="stylesheet" href="{{ theme_url }}/animations.css" type="text/css">{% endif %}
+	{% if config.DeckOfCards.css.animations %}<link rel="stylesheet" href="{{ theme_url }}/animations.css" type="text/css">{% endif %}
 
-	{# Custom MoviePoster Themes #}
-	{% if config.MoviePoster.css.theme and not meta.theme %}
-		<link rel="stylesheet" href="{{ base_url }}/assets/MoviePoster_Themes/{{ config.MoviePoster.css.theme }}/theme.css" type="text/css">
-		{% if config.MoviePoster.css.animations %}<link rel="stylesheet" href="{{ base_url }}/assets/MoviePoster_Themes/{{ config.MoviePoster.css.theme }}/animations.css" type="text/css">{% endif %}
+	{# Custom DeckOfCards Themes #}
+	{% if config.DeckOfCards.css.theme and not meta.theme %}
+		<link rel="stylesheet" href="{{ base_url }}/assets/DeckOfCards_Themes/{{ config.DeckOfCards.css.theme }}/theme.css" type="text/css">
+		{% if config.DeckOfCards.css.animations %}<link rel="stylesheet" href="{{ base_url }}/assets/DeckOfCards_Themes/{{ config.DeckOfCards.css.theme }}/animations.css" type="text/css">{% endif %}
 	{% elseif meta.theme and meta.theme != "Default" %}
-		<link rel="stylesheet" href="{{ base_url }}/assets/MoviePoster_Themes/{{ meta.theme }}/theme.css" type="text/css">
-		{% if config.MoviePoster.css.animations %}<link rel="stylesheet" href="{{ base_url }}/assets/MoviePoster_Themes/{{ meta.theme }}/animations.css" type="text/css">{% endif %}
+		<link rel="stylesheet" href="{{ base_url }}/assets/DeckOfCards_Themes/{{ meta.theme }}/theme.css" type="text/css">
+		{% if config.DeckOfCards.css.animations %}<link rel="stylesheet" href="{{ base_url }}/assets/DeckOfCards_Themes/{{ meta.theme }}/animations.css" type="text/css">{% endif %}
 	{% endif %}
 
 	{# User Style Overrides #}
-	{% if config.MoviePoster.css.override %}
-		<link rel="stylesheet" href="{{ base_url }}/{{ config.MoviePoster.css.override }}" type="text/css">
+	{% if config.DeckOfCards.css.override %}
+		<link rel="stylesheet" href="{{ base_url }}/{{ config.DeckOfCards.css.override }}" type="text/css">
 	{% endif %}
 	{% if meta.css_override %}
 		<link rel="stylesheet" href="{{ base_url }}/{{ meta.css_override }}" type="text/css">
@@ -50,8 +50,8 @@ http://github.com/smcdougall/MoviePoster
 	<script src="{{ theme_url }}/scripts/modernizr.js"></script>
 
 	{# Description Length #}
-	{% if config.MoviePoster.description_length %}
-		{% set description_length = config.MoviePoster.description_length %}
+	{% if config.DeckOfCards.description_length %}
+		{% set description_length = config.DeckOfCards.description_length %}
 	{% else %}
 		{% set description_length = 255 %}
 	{% endif %}
@@ -60,26 +60,26 @@ http://github.com/smcdougall/MoviePoster
 	<meta property="og:url" content="{{ current_page.url }}">
 	<meta property="og:site_name" content="{{ site_title }}">
 	<meta property="og:type" content="website">
-	{% if meta.title and not ((is_front_page and config.MoviePoster.front_page.enabled) or TwigGetUrl.search or TwigGetUrl.tag) %}<meta property="og:title" content="{{ meta.title }}">{% endif %}
+	{% if meta.title and not ((is_front_page and config.DeckOfCards.front_page.enabled) or TwigGetUrl.search or TwigGetUrl.tag) %}<meta property="og:title" content="{{ meta.title }}">{% endif %}
 	{% if meta.description %}
 		<meta property="og:description" content="{{ meta.description }}">
-	{% elseif not ((is_front_page and config.MoviePoster.front_page.enabled) or TwigGetUrl.search or TwigGetUrl.tag) %}
+	{% elseif not ((is_front_page and config.DeckOfCards.front_page.enabled) or TwigGetUrl.search or TwigGetUrl.tag) %}
 		{% if content|striptags|length > description_length %}
 			<meta property="og:description" content="{{ content|striptags|slice(0,description_length)|split(' ',-1)|join(' ') ~ "..." }}">
 		{% else %}
 			<meta property="og:description" content="{{ content|striptags }}">
 		{% endif %}
 	{% endif %}
-	{% if config.MoviePoster.og_image %}<meta property="og:image" content="{{ base_url }}/{{ config.MoviePoster.og_image }}">{% endif %}
+	{% if config.DeckOfCards.og_image %}<meta property="og:image" content="{{ base_url }}/{{ config.DeckOfCards.og_image }}">{% endif %}
 
 	{# Facebook Coments Administration #}
-	{% if config.MoviePoster.comments.type == "facebook" %}
-		{% if config.MoviePoster.comments.admin_type == "user" %}
-			{% for users in config.MoviePoster.comments.admin_id %}
+	{% if config.DeckOfCards.comments.type == "facebook" %}
+		{% if config.DeckOfCards.comments.admin_type == "user" %}
+			{% for users in config.DeckOfCards.comments.admin_id %}
 				<meta property="fb:admins" content="{{ users }}">
 			{% endfor %}
-		{% elseif config.MoviePoster.comments.admin_type == "app" %}
-			<meta property="fb:app_id" content="{{ config.MoviePoster.comments.admin_id }}">
+		{% elseif config.DeckOfCards.comments.admin_type == "app" %}
+			<meta property="fb:app_id" content="{{ config.DeckOfCards.comments.admin_id }}">
 		{% endif %}
 		<noscript><style>.fb-comments:before {content: 'Please enable JavaScript to view the Facebook Comments.';} .fb-comments {text-align: center;}</style></noscript>
 	{% endif %}
@@ -93,7 +93,7 @@ http://github.com/smcdougall/MoviePoster
 	{% endfor %}
 
 	{# Folder Navigation - First Level Calculation #}
-	{% if config.MoviePoster.toc.folder %}
+	{% if config.DeckOfCards.toc.folder %}
 		{% set first_level = [] %}
 		{% for page in pages if not page.meta.blog %}
 			{% if '/' in page.id and (page.id|split('/')|first) not in first_level %}
@@ -168,8 +168,8 @@ http://github.com/smcdougall/MoviePoster
 	<header class="site_title">
 		<h1>
 			<a href="{{ base_url }}">
-				{% if config.MoviePoster.site_logo %}
-					<img src="{{ base_url }}/{{ config.MoviePoster.site_logo }}" alt="{{ site_title }}">
+				{% if config.DeckOfCards.site_logo %}
+					<img src="{{ base_url }}/{{ config.DeckOfCards.site_logo }}" alt="{{ site_title }}">
 				{% else %}
 					{{ site_title }}
 				{% endif %}
@@ -178,9 +178,9 @@ http://github.com/smcdougall/MoviePoster
 
 		{# Navigation #}
 		<nav>
-			{% if not config.MoviePoster.disable.toc %}
+			{% if not config.DeckOfCards.disable.toc %}
 					<ul>
-						{% for page in pages if not page.meta.blog and not (config.MoviePoster.toc.folder and page.id|split('/')|first in first_level) %}
+						{% for page in pages if not page.meta.blog and not (config.DeckOfCards.toc.folder and page.id|split('/')|first in first_level) %}
 							<li>
 								<a {% if page.id == current_page.id %}class="current_page"{% endif %} href="{{ page.url }}">{{ page.title }}</a>
 								{% if page.id == current_page.id and page.meta.toc %}
@@ -192,7 +192,7 @@ http://github.com/smcdougall/MoviePoster
 			{% endif %}
 
 			{# Folder Navigation #}
-			{% if config.MoviePoster.toc.folder %}
+			{% if config.DeckOfCards.toc.folder %}
 				{% for ToC in first_level %}
 					<div class="toc foldertoc">
 						<h2>{{ ToC|replace({"_": " "})|title }}</h2>
@@ -208,9 +208,9 @@ http://github.com/smcdougall/MoviePoster
 
 		{# Content Rendering #}
 				<article>
-					{% if not config.MoviePoster.disable.header and ((meta.date and not config.MoviePoster.disable.date) or (meta.title))%}
+					{% if not config.DeckOfCards.disable.header and ((meta.date and not config.DeckOfCards.disable.date) or (meta.title))%}
 						<header>
-							{% if meta.date and not config.MoviePoster.disable.date %}<h4 class="date{% if config.MoviePoster.css.mirrorwidgets %} mirrordate{% endif %}">{{ meta.date|date("F<\\b\\r>jS") }}</h4>{% endif %}
+							{% if meta.date and not config.DeckOfCards.disable.date %}<h4 class="date{% if config.DeckOfCards.css.mirrorwidgets %} mirrordate{% endif %}">{{ meta.date|date("F<\\b\\r>jS") }}</h4>{% endif %}
 							{% if meta.title %}
 								<h2 class="title"><a href="{{ meta.url }}">{{ meta.title }}</a></h2>
 								{% if meta.author %}<h3 class="author"> by: {{ meta.author }}</h3>{% endif %}
@@ -223,11 +223,11 @@ http://github.com/smcdougall/MoviePoster
 	</main>
 
 	{# Disqus Comments #}
-	{% if config.MoviePoster.comments.type == "disqus" and (not is_front_page or config.MoviePoster.comments.front) %}
+	{% if config.DeckOfCards.comments.type == "disqus" and (not is_front_page or config.DeckOfCards.comments.front) %}
 		<section id="disqus_thread" class="comments">
 			<script type="text/javascript">
 			/* * * CONFIGURATION VARIABLES * * */
-				var disqus_shortname = '{{ config.MoviePoster.comments.shortname }}';
+				var disqus_shortname = '{{ config.DeckOfCards.comments.shortname }}';
 			/* * * DON'T EDIT BELOW THIS LINE * * */
 				(function() {
 					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -239,7 +239,7 @@ http://github.com/smcdougall/MoviePoster
 		</section>
 
 	{# Facebook Comments #}
-	{% elseif config.MoviePoster.comments.type == "facebook" and (not is_front_page or config.MoviePoster.comments.front) %}
+	{% elseif config.DeckOfCards.comments.type == "facebook" and (not is_front_page or config.DeckOfCards.comments.front) %}
 		<script>
 			(function(d, s, id) {
 				var js, fjs = d.getElementsByTagName(s)[0];
@@ -249,13 +249,13 @@ http://github.com/smcdougall/MoviePoster
 				fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
 		</script>
-		<section class="fb-comments comments" data-colorscheme="{% if config.MoviePoster.comments.dark %}dark{% endif %}" data-href="{{ current_page.url }}" data-width="100%" data-numposts="{{ config.MoviePoster.comments.limit }}" data-order-by="{{ config.MoviePoster.comments.order }}"></section>
+		<section class="fb-comments comments" data-colorscheme="{% if config.DeckOfCards.comments.dark %}dark{% endif %}" data-href="{{ current_page.url }}" data-width="100%" data-numposts="{{ config.DeckOfCards.comments.limit }}" data-order-by="{{ config.DeckOfCards.comments.order }}"></section>
 	{% endif %}
 
 	{# Footer #}
 	<footer>
-		{% if config.MoviePoster.copyright %}<h2 class="copyright">{{ config.MoviePoster.copyright }}</h2>{% endif %}
-		{# Feel free to comment out this line #}<h3 class="credit"><a href="http://development.sjmcdougall.com/pico-themes/MoviePoster/">MoviePoster Theme</a> by <a href="malto:simon@sjmcdougall.com">Simon McDougall</a>.<br><a href="http://github.com/smcdougall/MoviePoster">Contribute on GitHub</a>.</h3>
+		{% if config.DeckOfCards.copyright %}<h2 class="copyright">{{ config.DeckOfCards.copyright }}</h2>{% endif %}
+		{# Feel free to comment out this line #}<h3 class="credit"><a href="http://development.sjmcdougall.com/pico-themes/DeckOfCards/">DeckOfCards Theme</a> by <a href="malto:simon@sjmcdougall.com">Simon McDougall</a>.<br><a href="http://github.com/smcdougall/DeckOfCards">Contribute on GitHub</a>.</h3>
 	</footer>
 
 </body>
